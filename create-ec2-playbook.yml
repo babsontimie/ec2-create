@@ -1,0 +1,15 @@
+---
+- name: Launch EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - aws_creds.yaml  # Vault-encrypted credentials
+
+  roles:
+    - create-ec2-instances
+
+  collections:
+    - amazon.aws
+

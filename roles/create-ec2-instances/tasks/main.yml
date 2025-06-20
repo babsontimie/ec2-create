@@ -1,0 +1,17 @@
+---
+- name: Launch multiple EC2 instances
+  amazon.aws.ec2_instance:
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_key }}"
+    region: "{{ aws_region }}"
+    key_name: "{{ key_name }}"
+    instance_type: "{{ instance_type }}"
+    image_id: "{{ image_id }}"
+    exact_count: "{{ exact_count }}"
+    wait: true
+    vpc_subnet_id: "{{ subnet_id }}"
+    network:
+      assign_public_ip: true
+    tags:
+      Name: "{{ instance_name }}"
+
